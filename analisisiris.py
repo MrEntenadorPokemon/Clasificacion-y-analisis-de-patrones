@@ -6,7 +6,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDisplay
 
-# Cargar dataset
 iris = load_iris()
 
 df_iris = pd.DataFrame(iris.data, columns = iris.feature_names)
@@ -19,14 +18,12 @@ print(f"Clases existentes: {iris.target_names}")
 print("\nTipos de atributos (pandas info): ")
 df_iris.info()
 
-# Estilo visual
 sns.set_style(style = "whitegrid")
 
 sns.pairplot(df_iris.drop('especies', axis = 1), hue = 'nombre_especie', palette = 'bright')
 plt.suptitle("Matriz de Dispersion - Iris Dataset", y = 1.02)
 plt.show()
 
-# Clasificacion Supervisada
 X = iris.data
 y = iris.target
 
@@ -44,11 +41,6 @@ disp.plot(cmap = plt.cm.Blues)
 plt.title("Matriz de Confusion - Decision Tree Classifier")
 plt.show()
 
-#Ejemplos
-# 3 ejemplos nuevos: [sepal_length, sepal_width, petal_length, petal_width]
-# Ejemplo 1: Pétalos pequeños (Típico de Setosa)
-# Ejemplo 2: Medidas intermedias (Típico de Versicolor)
-# Ejemplo 3: Pétalos muy grandes (Típico de Virginica)
 nuevos_datos = [
     [5.0, 3.4, 1.5, 0.2], 
     [6.2, 2.9, 4.3, 1.3], 
